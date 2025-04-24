@@ -5,28 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minha Página Inicial</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        main section {
+            display: none;
+        }
+        main section.ativo {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Bem-vindo à minha página!</h1>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
+                <li><a href="#" onclick="mostrarPagina('home')">Home</a></li>
+                <li><a href="#" onclick="mostrarPagina('sobre')">Sobre</a></li>
+                <li><a href="#" onclick="mostrarPagina('contato')">Contato</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section>
+        <section id="home" class="ativo">
             <h2>Seção Principal</h2>
             <p>Este é o conteúdo principal da página.</p>
+        </section>
+
+        <section id="sobre">
+            <h2>Sobre</h2>
+            <p>Essa é a seção sobre mim ou sobre o site.</p>
+        </section>
+
+        <section id="contato">
+            <h2>Contato</h2>
+            <p>Entre em contato comigo por e-mail ou redes sociais.</p>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2025 Minha Página</p>
     </footer>
+
+    <script>
+        function mostrarPagina(pagina) {
+            // Remove a classe "ativo" de todas as seções
+            document.querySelectorAll("main section").forEach(sec => sec.classList.remove("ativo"));
+            
+            // Adiciona a classe "ativo" na seção escolhida
+            document.getElementById(pagina).classList.add("ativo");
+        }
+    </script>
 </body>
 </html>
