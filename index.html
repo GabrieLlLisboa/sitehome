@@ -1,164 +1,246 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devopup - Página Inicial</title>
-    <style>
-        /* Reset e base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Devopup - Página Inicial</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-        body {
-            background: #f0f2f5;
-            color: #333;
-        }
+    body {
+      background: #f0f2f5;
+      color: #333;
+    }
 
-        header {
-            background: #2f4ce0;
-            color: white;
-            padding: 30px 15px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+    header {
+      background: #2f4ce0;
+      color: white;
+      padding: 30px 15px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
-        header h1 {
-            font-size: 2.2rem;
-        }
+    header h1 {
+      font-size: 2.2rem;
+    }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 15px;
-            flex-wrap: wrap;
-        }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 15px;
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 8px 15px;
-            border-radius: 8px;
-            transition: background 0.3s;
-        }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 15px;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
 
-        nav a:hover {
-            background: rgba(255, 255, 255, 0.15);
-        }
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
 
-        main {
-            padding: 40px 20px;
-            max-width: 900px;
-            margin: auto;
-        }
+    main {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
 
-        section {
-            display: none;
-            animation: fadeIn 0.5s ease-in-out forwards;
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-            margin-bottom: 30px;
-        }
+    section {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out forwards;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      margin-bottom: 30px;
+    }
 
-        section.ativo {
-            display: block;
-        }
+    section.ativo {
+      display: block;
+    }
 
-        h2 {
-            margin-bottom: 15px;
-            color: #2f4ce0;
-            font-size: 1.6rem;
-        }
+    h2 {
+      margin-bottom: 15px;
+      color: #2f4ce0;
+      font-size: 1.6rem;
+    }
 
-        p, li {
-            font-size: 1rem;
-            line-height: 1.6;
-        }
+    p, li {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
 
-        ul {
-            padding-left: 20px;
-        }
+    ul {
+      padding-left: 20px;
+    }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #e2e2e2;
-            color: #555;
-            margin-top: 50px;
-            font-size: 0.9rem;
-        }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #e2e2e2;
+      color: #555;
+      margin-top: 50px;
+      font-size: 0.9rem;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    input[type="password"] {
+      padding: 8px;
+      width: 200px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      padding: 8px 12px;
+      background-color: #2f4ce0;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1e3ed8;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Bem-vindo à minha página!</h1>
-        <nav>
-            <ul>
-                <li><a href="#" onclick="mostrarPagina('home')">Home</a></li>
-                <li><a href="#" onclick="mostrarPagina('sobre')">Sobre</a></li>
-                <li><a href="#" onclick="mostrarPagina('contato')">Contato</a></li>
-                <li><a href="#" onclick="mostrarPagina('projetos')">Projetos</a></li>
-                <li><a href="#" onclick="mostrarPagina('atualizacoes')">Atualizações</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <h1>Bem-vindo à minha página!</h1>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="mostrarPagina('home')">Home</a></li>
+        <li><a href="#" onclick="mostrarPagina('sobre')">Sobre</a></li>
+        <li><a href="#" onclick="mostrarPagina('contato')">Contato</a></li>
+        <li><a href="#" onclick="mostrarPagina('projetos')">Projetos</a></li>
+        <li><a href="#" onclick="mostrarPagina('atualizacoes')">Atualizações</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-        <section id="home" class="ativo">
-            <h2>Início</h2>
-            <p>Olá! Seja bem-vindo ao meu site pessoal. Aqui compartilho um pouco sobre mim e como me encontrar.</p>
-        </section>
+  <main>
+    <section id="home" class="ativo">
+      <h2>Início</h2>
+      <p>Olá! Seja bem-vindo ao meu site pessoal. Aqui compartilho um pouco sobre mim e como me encontrar.</p>
+    </section>
 
-        <section id="sobre">
-            <h2>Sobre</h2>
-            <p>Sou o <strong>Devopup</strong>, desenvolvedor e entusiasta da tecnologia. Curto programação, design e aprender coisas novas todos os dias!</p>
-        </section>
+    <section id="sobre">
+      <h2>Sobre</h2>
+      <p>Sou o <strong>Devopup</strong>, desenvolvedor e entusiasta da tecnologia. Curto programação, design e aprender coisas novas todos os dias!</p>
+    </section>
 
-        <section id="contato">
-            <h2>Contato</h2>
-            <p>No Discord, entre em contato comigo. Meu nick é: <strong>devopup</strong> 📨</p>
-        </section>
+    <section id="contato">
+      <h2>Contato</h2>
+      <p>No Discord, entre em contato comigo. Meu nick é: <strong>devopup</strong> 📨</p>
+    </section>
 
-        <section id="projetos">
-            <h2>Meus Projetos</h2>
-            <ul>
-                <li>
-                    <a href="https://github.com/GabrieLlLisboa/ConversorMoeda" target="_blank">
-                        Conversor de Moeda
-                    </a> – Também feito em HTML.
-                </li>
-            </ul>
-        </section>
+    <section id="projetos">
+      <h2>Meus Projetos</h2>
+      <ul>
+        <li>
+          <a href="https://github.com/GabrieLlLisboa/ConversorMoeda" target="_blank">
+            Conversor de Moeda
+          </a> – Também feito em HTML.
+        </li>
+      </ul>
+    </section>
 
-        <section id="atualizacoes">
-            <h2>Últimas Atualizações do site</h2>
-            <p>Esta ferramenta ainda está em desenvolvimento 🛠️<br>
-            Fique atento para novidades em breve!</p>
-        </section>
-    </main>
+    <section id="atualizacoes">
+      <h2>Últimas Atualizações</h2>
+      <ul id="listaAtualizacoes">
+        <li>Ainda em desenvolvimento esta ferramenta</li>
+      </ul>
 
-    <footer>
-        <p>&copy; 2025 Devopup. Todos os direitos reservados.</p>
-    </footer>
+      <button onclick="mostrarCampoSenha()">✏️ Nova Atualização</button>
 
-    <script>
-        function mostrarPagina(pagina) {
-            document.querySelectorAll("main section").forEach(sec => sec.classList.remove("ativo"));
-            document.getElementById(pagina).classList.add("ativo");
-        }
-    </script>
+      <div id="campoSenha" style="display:none; margin-top:15px;">
+        <input type="password" id="senha" placeholder="Digite a senha">
+        <button onclick="validarSenha()">Confirmar</button>
+      </div>
+
+      <div id="editorAtualizacao" style="display:none; margin-top:15px;">
+        <textarea id="novaAtualizacao" placeholder="Escreva a nova atualização..."></textarea>
+        <button onclick="adicionarAtualizacao()">Salvar Atualização</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Devopup. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    function mostrarPagina(pagina) {
+      document.querySelectorAll("main section").forEach(sec => sec.classList.remove("ativo"));
+      document.getElementById(pagina).classList.add("ativo");
+    }
+
+    function carregarAtualizacoes() {
+      const lista = document.getElementById("listaAtualizacoes");
+      const atualizacoes = JSON.parse(localStorage.getItem("atualizacoes")) || [];
+      lista.innerHTML = "";
+      atualizacoes.forEach(att => {
+        const li = document.createElement("li");
+        li.textContent = att;
+        lista.appendChild(li);
+      });
+    }
+
+    function mostrarCampoSenha() {
+      document.getElementById("campoSenha").style.display = "block";
+    }
+
+    function validarSenha() {
+      const senhaDigitada = document.getElementById("senha").value;
+      const senhaCorreta = "devopup123";
+      if (senhaDigitada === senhaCorreta) {
+        document.getElementById("editorAtualizacao").style.display = "block";
+        document.getElementById("campoSenha").style.display = "none";
+      } else {
+        alert("Senha incorreta!");
+      }
+    }
+
+    function adicionarAtualizacao() {
+      const texto = document.getElementById("novaAtualizacao").value;
+      if (texto.trim() === "") return;
+      const atualizacoes = JSON.parse(localStorage.getItem("atualizacoes")) || [];
+      atualizacoes.unshift(texto);
+      localStorage.setItem("atualizacoes", JSON.stringify(atualizacoes));
+      document.getElementById("novaAtualizacao").value = "";
+      document.getElementById("editorAtualizacao").style.display = "none";
+      carregarAtualizacoes();
+    }
+
+    carregarAtualizacoes();
+  </script>
 </body>
 </html>
