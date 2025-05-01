@@ -96,34 +96,6 @@
             font-size: 0.9rem;
         }
 
-        #lembretes ul {
-            list-style-type: none;
-            padding-left: 20px;
-        }
-
-        #lembretes li {
-            background-color: #f1f1f1;
-            margin: 5px 0;
-            padding: 10px;
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        #lembretes button {
-            background-color: #ff4c4c;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        #lembretes button:hover {
-            background-color: #ff2d2d;
-        }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -139,7 +111,7 @@
                 <li><a href="#" onclick="mostrarPagina('sobre')">Sobre</a></li>
                 <li><a href="#" onclick="mostrarPagina('contato')">Contato</a></li>
                 <li><a href="#" onclick="mostrarPagina('projetos')">Projetos</a></li>
-                <li><a href="#" onclick="mostrarPagina('lembretes')">Lembretes</a></li>
+                <li><a href="#" onclick="mostrarPagina('atualizacoes')">Atualizações</a></li>
             </ul>
         </nav>
     </header>
@@ -169,17 +141,6 @@
                     </a> – Também feito em HTML.
                 </li>
             </ul>
-            <div id="lembretes">
-                <h3>Lembretes</h3>
-                <p><a href="#" onclick="mostrarPagina('lembretes')">Ir para o sistema de lembretes</a></p>
-            </div>
-        </section>
-
-        <section id="lembretes" class="ativo">
-            <h2>Sistema de Lembretes</h2>
-            <input type="text" id="novoLembrete" placeholder="Adicione um lembrete...">
-            <button onclick="adicionarLembrete()">Adicionar Lembrete</button>
-            <ul id="listaLembretes"></ul>
         </section>
 
         <section id="atualizacoes">
@@ -193,52 +154,10 @@
     </footer>
 
     <script>
-        // Função para mostrar a página clicada
         function mostrarPagina(pagina) {
             document.querySelectorAll("main section").forEach(sec => sec.classList.remove("ativo"));
             document.getElementById(pagina).classList.add("ativo");
         }
-
-        // Função para adicionar lembrete
-        function adicionarLembrete() {
-            const lembreteInput = document.getElementById("novoLembrete");
-            const lembreteText = lembreteInput.value.trim();
-            if (lembreteText) {
-                // Adicionar lembrete ao localStorage
-                let lembretes = JSON.parse(localStorage.getItem('lembretes')) || [];
-                lembretes.push(lembreteText);
-                localStorage.setItem('lembretes', JSON.stringify(lembretes));
-                lembreteInput.value = '';
-                exibirLembretes();
-            }
-        }
-
-        // Função para remover lembrete
-        function removerLembrete(index) {
-            let lembretes = JSON.parse(localStorage.getItem('lembretes')) || [];
-            lembretes.splice(index, 1);
-            localStorage.setItem('lembretes', JSON.stringify(lembretes));
-            exibirLembretes();
-        }
-
-        // Função para exibir os lembretes
-        function exibirLembretes() {
-            const listaLembretes = document.getElementById("listaLembretes");
-            listaLembretes.innerHTML = '';
-            const lembretes = JSON.parse(localStorage.getItem('lembretes')) || [];
-            lembretes.forEach((lembrete, index) => {
-                const li = document.createElement('li');
-                li.textContent = lembrete;
-                const removerBtn = document.createElement('button');
-                removerBtn.textContent = 'Remover';
-                removerBtn.onclick = () => removerLembrete(index);
-                li.appendChild(removerBtn);
-                listaLembretes.appendChild(li);
-            });
-        }
-
-        // Exibir os lembretes ao carregar a página
-        window.onload = exibirLembretes;
     </script>
 </body>
 </html>
