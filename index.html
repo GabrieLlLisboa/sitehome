@@ -112,6 +112,7 @@
                 <li><a href="#" onclick="mostrarPagina('contato')">Contato</a></li>
                 <li><a href="#" onclick="mostrarPagina('projetos')">Projetos</a></li>
                 <li><a href="#" onclick="mostrarPagina('atualizacoes')">Atualizações</a></li>
+                <li><a href="#" onclick="mostrarPagina('lembretes')">Lembretes</a></li>
             </ul>
         </nav>
     </header>
@@ -145,7 +146,21 @@
 
         <section id="atualizacoes">
             <h2>Últimas Atualizações</h2>
-            <p>Sistema de atualizações!</p>
+            <div id="atualizacoes-container">
+                <p>Não há atualizações ainda.</p>
+            </div>
+            <input type="text" id="nova-atualizacao" placeholder="Digite uma nova atualização...">
+            <button onclick="adicionarAtualizacao()">Adicionar Atualização</button>
+        </section>
+
+        <!-- Seção de Lembretes -->
+        <section id="lembretes">
+            <h2>Lembretes</h2>
+            <div id="lembretes-container">
+                <p>Não há lembretes ainda.</p>
+            </div>
+            <input type="text" id="novo-lembrete" placeholder="Digite um novo lembrete...">
+            <button onclick="adicionarLembrete()">Adicionar Lembrete</button>
         </section>
     </main>
 
@@ -158,6 +173,66 @@
             document.querySelectorAll("main section").forEach(sec => sec.classList.remove("ativo"));
             document.getElementById(pagina).classList.add("ativo");
         }
+
+        // Funções de Atualizações
+        function carregarAtualizacoes() {
+            const atualizacoes = JSON.parse(localStorage.getItem('atualizacoes')) || [];
+            const container = document.getElementById('atualizacoes-container');
+            container.innerHTML = '';  // Limpa o conteúdo
+            if (atualizacoes.length > 0) {
+                atualizacoes.forEach(atualizacao => {
+                    const p = document.createElement('p');
+                    p.textContent = atualizacao;
+                    container.appendChild(p);
+                });
+            } else {
+                container.innerHTML = '<p>Não há atualizações ainda.</p>';
+            }
+        }
+
+        function adicionarAtualizacao() {
+            const novaAtualizacao = document.getElementById('nova-atualizacao').value;
+            if (novaAtualizacao.trim()) {
+                const atualizacoes = JSON.parse(localStorage.getItem('atualizacoes')) || [];
+                atualizacoes.push(novaAtualizacao);
+                localStorage.setItem('atualizacoes', JSON.stringify(atualizacoes));
+                document.getElementById('nova-atualizacao').value = '';  // Limpa o campo de texto
+                carregarAtualizacoes();  // Recarrega as atualizações
+            }
+        }
+
+        // Funções de Lembretes
+        function carregarLembretes() {
+            const lembretes = JSON.parse(localStorage.getItem('lembretes')) || [];
+            const container = document.getElementById('lembretes-container');
+            container.innerHTML = '';  // Limpa o conteúdo
+            if (lembretes.length > 0) {
+                lembretes.forEach(lembrete => {
+                    const p = document.createElement('p');
+                    p.textContent = lembrete;
+                    container.appendChild(p);
+                });
+            } else {
+                container.innerHTML = '<p>Não há lembretes ainda.</p>';
+            }
+        }
+
+        function adicionarLembrete() {
+            const novoLembrete = document.getElementById('novo-lembrete').value;
+            if (novoLembrete.trim()) {
+                const lembretes = JSON.parse(localStorage.getItem('lembretes')) || [];
+                lembretes.push(novoLembrete);
+                localStorage.setItem('lembretes', JSON.stringify(lembretes));
+                document.getElementById('novo-lembrete').value = '';  // Limpa o campo de texto
+                carregarLembretes();  // Recarrega os lembretes
+            }
+        }
+
+        // Carrega as atualizações e lembretes ao carregar a página
+        window.onload = function() {
+            carregarAtualizacoes();
+            carregarLembretes();
+        };
     </script>
 </body>
 </html>
