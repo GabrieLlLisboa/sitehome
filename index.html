@@ -3,59 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Página pessoal do Devopup - Desenvolvedor e entusiasta de tecnologia">
-    <title>Devopup - Página Pessoal</title>
+    <title>Devopup - Página Inicial</title>
     <style>
-        :root {
-            --primary-color: #2f4ce0;
-            --primary-dark: #1f3bb3;
-            --error-color: #ff4d4d;
-            --error-dark: #cc0000;
-            --text-color: #333;
-            --bg-color: #f0f2f5;
-            --card-bg: #ffffff;
-            --footer-bg: #e2e2e2;
-            --border-radius: 12px;
-            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-            --transition: all 0.3s ease;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            background: #f0f2f5;
+            color: #333;
+            font-size: 1rem;
         }
 
+    
         header {
-            background: var(--primary-color);
+            background: #2f4ce0;
             color: white;
-            padding: 2rem 1rem;
+            padding: 30px 15px;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-bottom: 2px solid var(--primary-dark);
+            border-bottom: 2px solid #1f3bb3;
         }
 
         header h1 {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
         }
 
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 25px;
+            margin-top: 15px;
             flex-wrap: wrap;
         }
 
@@ -63,35 +46,30 @@
             color: white;
             text-decoration: none;
             font-weight: 600;
-            padding: 0.5rem 1.25rem;
+            padding: 8px 20px;
             border-radius: 20px;
-            transition: var(--transition);
-            display: inline-block;
+            transition: background 0.3s, transform 0.3s;
         }
 
-        nav a:hover,
-        nav a:focus {
+        nav a:hover {
             background: rgba(255, 255, 255, 0.15);
-            transform: scale(1.05);
-            outline: none;
+            transform: scale(1.1);
         }
 
         main {
-            padding: 2.5rem 1.25rem;
-            max-width: 56.25rem;
-            margin: 0 auto;
-            flex: 1;
-            width: 100%;
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
         }
 
         section {
             display: none;
             animation: fadeIn 0.5s ease-in-out forwards;
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            margin-bottom: 1.875rem;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            margin-bottom: 30px;
         }
 
         section.ativo {
@@ -99,34 +77,26 @@
         }
 
         h2 {
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2f4ce0;
+            font-size: 1.6rem;
         }
 
         p, li {
-            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
         ul {
-            padding-left: 1.25rem;
-        }
-
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        a:hover {
-            text-decoration: underline;
+            padding-left: 20px;
         }
 
         footer {
             text-align: center;
-            padding: 1.25rem;
-            background: var(--footer-bg);
+            padding: 20px;
+            background: #e2e2e2;
             color: #555;
+            margin-top: 50px;
             font-size: 0.9rem;
         }
 
@@ -140,210 +110,134 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.5rem 0;
+            padding: 5px 0;
             border-bottom: 1px solid #ddd;
         }
 
-        .lembrete:last-child {
-            border-bottom: none;
-        }
-
         .lembrete button {
-            background: var(--error-color);
+            background: #ff4d4d;
             color: white;
             border: none;
             border-radius: 20px;
-            padding: 0.5rem 1rem;
+            padding: 8px 16px;
             cursor: pointer;
-            transition: var(--transition);
-            font-weight: 600;
+            transition: background 0.3s, transform 0.3s;
         }
 
-        .lembrete button:hover,
-        .lembrete button:focus {
-            background: var(--error-dark);
-            transform: scale(1.05);
-            outline: none;
-        }
-
-        .form-group {
-            margin: 1rem 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+        .lembrete button:hover {
+            background: #cc0000;
+            transform: scale(1.1);
         }
 
         input[type="text"] {
-            flex: 1;
-            min-width: 200px;
-            padding: 0.625rem;
-            border-radius: var(--border-radius);
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 10px;
             border: 1px solid #ddd;
             font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        input[type="text"]:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(47, 76, 224, 0.2);
+            box-sizing: border-box;
         }
 
         button {
-            padding: 0.625rem 1.25rem;
-            background: var(--primary-color);
+            padding: 10px 20px;
+            background: #2f4ce0;
             color: white;
             border: none;
             border-radius: 20px;
             font-weight: bold;
             cursor: pointer;
-            transition: var(--transition);
+            transition: background 0.3s, transform 0.3s;
         }
 
-        button:hover,
-        button:focus {
-            background: var(--primary-dark);
+        button:hover {
+            background: #1a3bb7;
             transform: scale(1.05);
-            outline: none;
         }
 
         #lembretes-container {
-            margin: 1.25rem 0;
-        }
-
-        .empty-state {
-            color: #666;
-            font-style: italic;
-        }
-
-        /* Responsividade */
-        @media (max-width: 600px) {
-            nav ul {
-                gap: 0.5rem;
-            }
-            
-            nav a {
-                padding: 0.5rem 0.8rem;
-                font-size: 0.9rem;
-            }
-            
-            main {
-                padding: 1.5rem 1rem;
-            }
-        }
-
-        /* Acessibilidade - foco visível */
-        *:focus {
-            outline: 2px solid var(--primary-color);
-            outline-offset: 2px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Bem-vindo à minha página!</h1>
-        <nav aria-label="Navegação principal">
+        <nav>
             <ul>
-                <li><a href="#home" onclick="mostrarPagina('home')" aria-current="page">Home</a></li>
-                <li><a href="#sobre" onclick="mostrarPagina('sobre')">Sobre</a></li>
-                <li><a href="#contato" onclick="mostrarPagina('contato')">Contato</a></li>
-                <li><a href="#projetos" onclick="mostrarPagina('projetos')">Projetos</a></li>
-                <li><a href="#atualizacoes" onclick="mostrarPagina('atualizacoes')">Atualizações</a></li>
+                <li><a href="#" onclick="mostrarPagina('home')">Home</a></li>
+                <li><a href="#" onclick="mostrarPagina('sobre')">Sobre</a></li>
+                <li><a href="#" onclick="mostrarPagina('contato')">Contato</a></li>
+                <li><a href="#" onclick="mostrarPagina('projetos')">Projetos</a></li>
+                <li><a href="#" onclick="mostrarPagina('atualizacoes')">Atualizações</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="home" class="ativo" aria-labelledby="home-heading">
-            <h2 id="home-heading">Início</h2>
+        <section id="home" class="ativo">
+            <h2>Início</h2>
             <p>Olá! Seja bem-vindo ao meu site pessoal. Aqui compartilho um pouco sobre mim e como me encontrar.</p>
         </section>
 
-        <section id="sobre" aria-labelledby="sobre-heading">
-            <h2 id="sobre-heading">Sobre</h2>
+        <section id="sobre">
+            <h2>Sobre</h2>
             <p>Sou o <strong>Devopup</strong>, desenvolvedor e entusiasta da tecnologia. Curto programação, design e aprender coisas novas todos os dias!</p>
         </section>
 
-        <section id="contato" aria-labelledby="contato-heading">
-            <h2 id="contato-heading">Contato</h2>
+        <section id="contato">
+            <h2>Contato</h2>
             <p>No Discord, entre em contato comigo. Meu nick é: <strong>devopup</strong> 📨</p>
         </section>
 
-        <section id="projetos" aria-labelledby="projetos-heading">
-            <h2 id="projetos-heading">Meus Projetos</h2>
+        <section id="projetos">
+            <h2>Meus Projetos</h2>
             <ul>
                 <li>
-                    <a href="https://github.com/GabrieLlLisboa/ConversorMoeda" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/GabrieLlLisboa/ConversorMoeda" target="_blank">
                         Conversor de Moeda
                     </a> – Também feito em HTML.
                 </li>
             </ul>
         </section>
 
-        <section id="atualizacoes" aria-labelledby="atualizacoes-heading">
-            <h2 id="atualizacoes-heading">Últimas Atualizações</h2>
-            <p>Este é o espaço onde você pode acompanhar as últimas novidades e mudanças.</p>
+        <section id="atualizacoes">
+            <h2>Últimas Atualizações</h2>
+            <p>
+                Este é o espaço onde você pode acompanhar as últimas novidades e mudanças.</p>
             <p>Para acessar a seção de lembretes, <a href="#lembretes" onclick="mostrarPagina('lembretes')">clique aqui</a>.</p>
         </section>
 
         <!-- Seção de Lembretes -->
-        <section id="lembretes" aria-labelledby="lembretes-heading">
-            <h2 id="lembretes-heading">Lembretes</h2>
+        <section id="lembretes">
+            <h2>Lembretes</h2>
             <div id="lembretes-container">
-                <p class="empty-state">Não há lembretes ainda.</p>
+                <p>Não há lembretes ainda.</p>
             </div>
-            <div class="form-group">
-                <input type="text" id="novo-lembrete" placeholder="Digite um novo lembrete..." aria-label="Adicionar novo lembrete">
-                <button onclick="adicionarLembrete()" aria-label="Adicionar lembrete">Adicionar Lembrete</button>
-            </div>
+            <input type="text" id="novo-lembrete" placeholder="Digite um novo lembrete...">
+            <button onclick="adicionarLembrete()">Adicionar Lembrete</button>
         </section>
     </main>
 
     <footer>
-        <p>&copy; <span id="current-year">2025</span> Devopup. Todos os direitos reservados.</p>
+        <p>&copy; 2025 Devopup. Todos os direitos reservados.</p>
     </footer>
 
     <script>
-        // Função para mostrar páginas
         function mostrarPagina(pagina) {
-            // Atualiza a URL sem recarregar a página
-            history.pushState(null, null, `#${pagina}`);
-            
-            // Remove a classe ativo de todas as seções
-            document.querySelectorAll("main section").forEach(sec => {
-                sec.classList.remove("ativo");
-                sec.setAttribute('aria-hidden', 'true');
-            });
-            
-            // Adiciona a classe ativo para a seção selecionada
-            const secaoAtiva = document.getElementById(pagina);
-            secaoAtiva.classList.add("ativo");
-            secaoAtiva.setAttribute('aria-hidden', 'false');
-            
-            // Atualiza o aria-current nos links de navegação
-            document.querySelectorAll('nav a').forEach(link => {
-                link.setAttribute('aria-current', 'false');
-                if (link.getAttribute('href') === `#${pagina}`) {
-                    link.setAttribute('aria-current', 'page');
-                }
-            });
-            
-            // Rola suavemente para o topo da seção
-            secaoAtiva.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            document.querySelectorAll("main section").forEach(sec => sec.classList.remove("ativo"));
+            document.getElementById(pagina).classList.add("ativo");
         }
 
         // Funções de Lembretes
         function carregarLembretes() {
             const lembretes = JSON.parse(localStorage.getItem('lembretes')) || [];
             const container = document.getElementById('lembretes-container');
-            
             container.innerHTML = '';  // Limpa o conteúdo
-            
             if (lembretes.length > 0) {
                 lembretes.forEach((lembrete, index) => {
                     const div = document.createElement('div');
                     div.classList.add('lembrete');
-                    div.setAttribute('role', 'listitem');
 
                     const p = document.createElement('p');
                     p.textContent = lembrete;
@@ -351,7 +245,6 @@
 
                     const button = document.createElement('button');
                     button.textContent = 'Remover';
-                    button.setAttribute('aria-label', `Remover lembrete: ${lembrete}`);
                     button.onclick = function() {
                         removerLembrete(index);
                     };
@@ -360,23 +253,17 @@
                     container.appendChild(div);
                 });
             } else {
-                const emptyState = document.createElement('p');
-                emptyState.classList.add('empty-state');
-                emptyState.textContent = 'Não há lembretes ainda.';
-                container.appendChild(emptyState);
+                container.innerHTML = '<p>Não há lembretes ainda.</p>';
             }
         }
 
         function adicionarLembrete() {
-            const input = document.getElementById('novo-lembrete');
-            const novoLembrete = input.value.trim();
-            
-            if (novoLembrete) {
+            const novoLembrete = document.getElementById('novo-lembrete').value;
+            if (novoLembrete.trim()) {
                 const lembretes = JSON.parse(localStorage.getItem('lembretes')) || [];
                 lembretes.push(novoLembrete);
                 localStorage.setItem('lembretes', JSON.stringify(lembretes));
-                input.value = '';  // Limpa o campo de texto
-                input.focus();    // Mantém o foco no input
+                document.getElementById('novo-lembrete').value = '';  // Limpa o campo de texto
                 carregarLembretes();  // Recarrega os lembretes
             }
         }
@@ -388,37 +275,10 @@
             carregarLembretes();  // Recarrega os lembretes após remoção
         }
 
-        // Carrega os lembretes e configura a página inicial
-        document.addEventListener('DOMContentLoaded', function() {
-            // Atualiza o ano do copyright dinamicamente
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-            
-            // Carrega os lembretes
+        // Carrega os lembretes ao carregar a página
+        window.onload = function() {
             carregarLembretes();
-            
-            // Verifica o hash da URL para mostrar a seção correta
-            const hash = window.location.hash.substring(1);
-            if (hash && document.getElementById(hash)) {
-                mostrarPagina(hash);
-            } else {
-                // Se não houver hash ou for inválido, mostra a home
-                mostrarPagina('home');
-            }
-            
-            // Adiciona evento para o formulário de lembretes
-            document.querySelector('.form-group').addEventListener('submit', function(e) {
-                e.preventDefault();
-                adicionarLembrete();
-            });
-        });
-
-        // Manipula o botão voltar/avançar do navegador
-        window.addEventListener('popstate', function() {
-            const hash = window.location.hash.substring(1);
-            if (hash && document.getElementById(hash)) {
-                mostrarPagina(hash);
-            }
-        });
+        };
     </script>
 </body>
 </html>
